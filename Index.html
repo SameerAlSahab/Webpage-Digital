@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vixmo  Digital | Online Tech Solutions</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Exo+2:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* ===== [Previous CSS remains the same] ===== */
+    
+    /* New Sections Styling */
+    section {
+      padding: 5rem 2rem;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .section-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+      background: linear-gradient(90deg, #00F5FF, #9400D3);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    /* About Section */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+    
+    .about-card {
+      background: rgba(20, 20, 50, 0.7);
+      padding: 2rem;
+      border-radius: 15px;
+      border: 1px solid rgba(0, 245, 255, 0.3);
+    }
+    
+    /* Portfolio */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    
+    .portfolio-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      height: 250px;
+    }
+    
+    .portfolio-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+    
+    .portfolio-item:hover img {
+      transform: scale(1.1);
+    }
+    
+    /* Contact Form */
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .form-input {
+      width: 100%;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid #00F5FF;
+      color: white;
+    }
+    
+    textarea.form-input {
+      min-height: 150px;
+    }
+  </style>
+</head>
+<body>
+  <!-- RGB Glow Border -->
+  <div class="glow-border"></div>
+  <div id="particles-js"></div>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="container">
+      <div class="logo">NEXUS</div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#portfolio">Work</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="container">
+      <h1>TRANSFORMING IDEAS INTO <span class="glow-text">DIGITAL REALITY</span></h1>
+      <p class="tagline">We build futuristic solutions with cutting-edge technology</p>
+      <button class="cta-button">EXPLORE OUR WORK</button>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about">
+    <div class="container">
+      <h2 class="section-title">WHO WE ARE</h2>
+      <div class="about-grid">
+        <div class="about-card">
+          <h3>Our Story</h3>
+          <p>Founded in 2025, Vixmo Digital began as a small team of passionate developers. Today we're a leading digital solutions provider with clients worldwide.</p>
+        </div>
+        <div class="about-card">
+          <h3>Our Approach</h3>
+          <p>We combine innovative design with robust engineering to create digital experiences that stand out and deliver real business value.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="services">
+    <div class="container">
+      <h2 class="section-title">OUR SERVICES</h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="icon"><i class="fas fa-code"></i></div>
+          <h3>Web Development</h3>
+          <p>Custom websites with futuristic UI/UX that convert visitors into customers.</p>
+        </div>
+        <!-- Add more services -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Section -->
+  <section id="portfolio" class="portfolio">
+    <div class="container">
+      <h2 class="section-title">OUR WORK</h2>
+      <div class="portfolio-grid">
+        <div class="portfolio-item">
+          <img src="https://via.placeholder.com/600x400/0A0A1A/00F5FF?text=Project+1" alt="Project 1">
+          <div class="portfolio-overlay">
+            <h3>Fintech Dashboard</h3>
+            <button>View Case Study</button>
+          </div>
+        </div>
+        <!-- Add more portfolio items -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <h2 class="section-title">GET IN TOUCH</h2>
+      <div class="contact-form">
+        <input type="text" class="form-input" placeholder="Your Name">
+        <input type="email" class="form-input" placeholder="Your Email">
+        <textarea class="form-input" placeholder="Your Message"></textarea>
+        <button class="cta-button">SEND MESSAGE</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script>
+    // Smooth scrolling for navigation
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    // Animate elements on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.about-card, .service-card, .portfolio-item').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
+</body>
+        </html>
