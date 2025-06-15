@@ -265,7 +265,60 @@ textarea.form-input {
   .hero h1 {
     font-size: 2.5rem;
   }
+
+  /* Mobile Navigation */
+.hamburger-menu {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.hamburger-menu .bar {
+  width: 25px;
+  height: 3px;
+  background-color: #fff;
+  margin: 3px 0;
+  transition: 0.4s;
+}
+
+.mobile-nav {
+  position: fixed;
+  top: 70px;
+  left: -100%;
+  width: 100%;
+  height: calc(100vh - 70px);
+  background-color: rgba(10, 10, 26, 0.95);
+  z-index: 999;
+  transition: left 0.3s ease;
+}
+
+.mobile-nav.active {
+  left: 0;
+}
+
+.mobile-nav ul {
+  padding: 20px;
+}
+
+.mobile-nav li {
+  margin: 15px 0;
+}
+
+.mobile-nav a {
+  color: white;
+  font-size: 1.2rem;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
   
+  .hamburger-menu {
+    display: flex;
+  }
+}
   .nav-links {
     gap: 1rem;
   }
