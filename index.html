@@ -1277,6 +1277,117 @@
     </div>
   </div>
 </section>
+  <!-- Logo Slideshow Section -->
+<div class="logo-slideshow">
+  <div class="slider-container">
+    <div class="slider-track">
+      <!-- Duplicate these for infinite loop effect -->
+      <div class="slide">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon" class="transparent-logo">
+      </div>
+      <div class="slide">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Google_Ads_logo.svg" alt="Google AdSense" class="transparent-logo">
+      </div>
+      <div class="slide">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg" alt="Figma" class="transparent-logo">
+      </div>
+      <div class="slide">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Meta_logo.svg" alt="Meta" class="transparent-logo">
+      </div>
+      <div class="slide">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Google_2020_logo.svg" alt="Google" class="transparent-logo">
+      </div>
+      <div class="slide">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg" alt="Microsoft" class="transparent-logo">
+      </div>
+      <div class="slide">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple" class="transparent-logo">
+      </div>
+      <div class="slide">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/9e/Adobe_logo_2020.svg" alt="Adobe" class="transparent-logo">
+      </div>
+      
+      <!-- Duplicates for seamless looping -->
+      <div class="slide">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon" class="transparent-logo">
+      </div>
+      <div class="slide">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Google_Ads_logo.svg" alt="Google AdSense" class="transparent-logo">
+      </div>
+      <div class="slide">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg" alt="Figma" class="transparent-logo">
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .logo-slideshow {
+    width: 100%;
+    overflow: hidden;
+    padding: 40px 0;
+    background: transparent;
+    margin: 30px 0;
+  }
+  
+  .slider-container {
+    width: 100%;
+    position: relative;
+  }
+  
+  .slider-track {
+    display: flex;
+    width: calc(250px * 11); /* Adjust based on number of slides */
+    animation: scroll 20s linear infinite;
+  }
+  
+  .slide {
+    width: 250px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+  }
+  
+  .transparent-logo {
+    max-width: 180px;
+    max-height: 60px;
+    filter: grayscale(100%) brightness(0.5);
+    opacity: 0.7;
+    transition: all 0.3s ease;
+  }
+  
+  .transparent-logo:hover {
+    filter: grayscale(0%) brightness(1);
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-250px * 8)); /* Adjust based on number of unique slides */
+    }
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .slider-track {
+      animation: scroll 15s linear infinite;
+    }
+    
+    .slide {
+      width: 180px;
+    }
+    
+    .transparent-logo {
+      max-width: 120px;
+    }
+  }
+</style>
 
   <!-- CTA Section -->
   <section class="cta-section">
