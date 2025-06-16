@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us | Vixmo Digital</title>
+  <meta name="description" content="Learn about Vixmo Digital - our mission, vision, values, and the team driving digital innovation">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="icon" href="vixmo.png">
+  <style>
+    /* ===== RESET & BASE STYLES ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    :root {
+      --primary: #00F5FF;
+      --secondary: #9400D3;
+      --dark-bg: #0A0A1A;
+      --card-bg: rgba(20, 20, 50, 0.7);
+      --accent: #FF00CC;
+    }
+    
+    body {
+      font-family: 'Exo 2', sans-serif;
+      background: var(--dark-bg);
+      color: white;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+    
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+    
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    
+    section {
+      padding: 5rem 0;
+    }
+    
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+      position: relative;
+    }
+    
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      margin: 15px auto;
+      border-radius: 2px;
+    }
+    
+    /* ===== GLOW EFFECTS ===== */
+    .glow-border {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      pointer-events: none;
+      z-index: -1;
+      animation: rgb-glow 8s infinite alternate;
+      border: 2px solid transparent;
+      border-radius: 15px;
+    }
+    
+    @keyframes rgb-glow {
+      0% { box-shadow: 0 0 20px #0066ff, inset 0 0 20px #0066ff; }
+      33% { box-shadow: 0 0 30px var(--secondary), inset 0 0 30px var(--secondary); }
+      66% { box-shadow: 0 0 40px var(--primary), inset 0 0 40px var(--primary); }
+      100% { box-shadow: 0 0 20px var(--accent), inset 0 0 20px var(--accent); }
+    }
+    
+    .glow-text {
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 10px rgba(148, 0, 211, 0.3);
+    }
+    
+    /* ===== NAVIGATION ===== */
+    nav {
+      position: fixed;
+      width: 100%;
+      padding: 1rem 0;
+      z-index: 100;
+      backdrop-filter: blur(10px);
+      background: rgba(10, 10, 26, 0.8);
+      border-bottom: 1px solid rgba(0, 245, 255, 0.1);
+    }
+    
+    nav .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      transition: transform 0.3s;
+    }
+    
+    .logo:hover {
+      transform: scale(1.03);
+    }
+    
+    .logo-img {
+      height: 30px;
+      width: 30px;
+    }
+    
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+    }
+    
+    .nav-links a {
+      font-weight: 600;
+      transition: color 0.3s;
+      position: relative;
+    }
+    
+    .nav-links a:hover, 
+    .nav-links a.active {
+      color: var(--primary);
+    }
+    
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: width 0.3s;
+    }
+    
+    .nav-links a:hover::after, 
+    .nav-links a.active::after {
+      width: 100%;
+    }
+    
+    .dropdown {
+      position: relative;
+    }
+    
+    .dropdown-content {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: rgba(20, 20, 50, 0.9);
+      border: 1px solid rgba(0, 245, 255, 0.3);
+      min-width: 200px;
+      display: none;
+      z-index: 1;
+      border-radius: 5px;
+      overflow: hidden;
+      backdrop-filter: blur(5px);
+    }
+    
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    
+    .dropdown-content a {
+      display: block;
+      padding: 10px 15px;
+      transition: background 0.3s;
+    }
+    
+    .dropdown-content a:hover {
+      background: rgba(0, 245, 255, 0.1);
+    }
+    
+    .mobile-menu-btn {
+      display: none;
+      cursor: pointer;
+      font-size: 1.5rem;
+      transition: transform 0.3s;
+    }
+    
+    .mobile-menu-btn:hover {
+      transform: scale(1.1);
+      color: var(--primary);
+    }
+    
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 280px;
+      height: 100vh;
+      background: rgba(10, 10, 26, 0.95);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      padding: 80px 20px 20px;
+      transition: right 0.3s ease;
+      overflow-y: auto;
+    }
+    
+    .mobile-menu.active {
+      right: 0;
+    }
+    
+    .mobile-menu ul {
+      list-style: none;
+    }
+    
+    .mobile-menu li {
+      margin: 15px 0;
+    }
+    
+    .mobile-menu a {
+      display: block;
+      padding: 10px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s;
+    }
+    
+    .mobile-menu a:hover {
+      color: var(--primary);
+      padding-left: 15px;
+    }
+    
+    .mobile-dropdown-content {
+      padding-left: 20px;
+      display: none;
+    }
+    
+    .mobile-dropdown-content.active {
+      display: block;
+    }
+    
+    .close-menu {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+    
+    .close-menu:hover {
+      transform: rotate(90deg);
+      color: var(--primary);
+    }
+    
+    /* ===== HERO SECTION ===== */
+    .hero {
+      height: 60vh;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      padding-top: 70px;
+      background: radial-gradient(circle at center, rgba(10, 10, 26, 0.7), rgba(10, 10, 26, 0.9));
+    }
+    
+    .hero h1 {
+      font-size: 2.8rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.3;
+      text-shadow: 0 0 10px rgba(0, 245, 255, 0.2);
+    }
+    
+    .tagline {
+      font-size: 1.3rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    /* ===== BUTTONS ===== */
+    .cta-button {
+      display: inline-block;
+      background: linear-gradient(45deg, var(--primary), var(--secondary));
+      border: none;
+      padding: 12px 30px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: white;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .cta-button:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 245, 255, 0.4);
+    }
+    
+    .cta-button.secondary {
+      background: transparent;
+      border: 2px solid var(--primary);
+    }
+    
+    .cta-button.secondary:hover {
+      background: rgba(0, 245, 255, 0.1);
+    }
+    
+    .learn-more {
+      display: inline-block;
+      margin-top: 15px;
+      color: var(--primary);
+      font-weight: 600;
+      transition: transform 0.3s;
+    }
+    
+    .learn-more:hover {
+      transform: translateX(5px);
+    }
+    
+    /* ===== ABOUT CONTENT ===== */
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+      margin-bottom: 5rem;
+    }
+    
+    .about-image {
+      position: relative;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+    }
+    
+    .about-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.5s;
+    }
+    
+    .about-image:hover img {
+      transform: scale(1.03);
+    }
+    
+    .about-image::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(148, 0, 211, 0.2), rgba(0, 245, 255, 0.2));
+      z-index: 1;
+    }
+    
+    .about-text h2 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .about-text p {
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+    }
+    
+    .milestones-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin: 4rem 0;
+    }
+    
+    .milestone-card {
+      background: var(--card-bg);
+      padding: 2rem;
+      border-radius: 15px;
+      border: 1px solid rgba(0, 245, 255, 0.2);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s;
+    }
+    
+    .milestone-card:hover {
+      transform: translateY(-10px);
+      border-color: var(--primary);
+    }
+    
+    .milestone-number {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--primary);
+    }
+    
+    .milestone-text {
+      font-size: 1.1rem;
+    }
+    
+    /* Team Section */
+    .team-section {
+      padding: 5rem 0;
+      background: rgba(10, 10, 26, 0.7);
+    }
+    
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+    
+    .team-member {
+      background: var(--card-bg);
+      border-radius: 15px;
+      overflow: hidden;
+      transition: all 0.3s;
+      border: 1px solid rgba(0, 245, 255, 0.2);
+    }
+    
+    .team-member:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 25px rgba(0, 245, 255, 0.2);
+    }
+    
+    .member-image {
+      height: 280px;
+      overflow: hidden;
+    }
+    
+    .member-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+    
+    .team-member:hover .member-image img {
+      transform: scale(1.05);
+    }
+    
+    .member-info {
+      padding: 1.5rem;
+      text-align: center;
+    }
+    
+    .member-info h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .member-position {
+      color: var(--primary);
+      font-weight: 600;
+      margin-bottom: 1rem;
+      display: block;
+    }
+    
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+    
+    .social-icons a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s;
+    }
+    
+    .social-icons a:hover {
+      background: rgba(0, 245, 255, 0.1);
+      border-color: var(--primary);
+      transform: translateY(-3px);
+    }
+    
+    /* Values Section */
+    .values-section {
+      padding: 5rem 0;
+    }
+    
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    
+    .value-card {
+      background: var(--card-bg);
+      padding: 2rem;
+      border-radius: 15px;
+      border: 1px solid rgba(0, 245, 255, 0.2);
+      text-align: center;
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .value-card:hover {
+      transform: translateY(-10px);
+      border-color: var(--primary);
+    }
+    
+    .value-icon {
+      font-size: 3rem;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+    }
+    
+    .value-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    /* ===== FOOTER ===== */
+    footer {
+      background: rgba(0, 0, 0, 0.3);
+      padding: 4rem 0 2rem;
+      border-top: 1px solid rgba(0, 245, 255, 0.1);
+    }
+    
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+    
+    .footer-logo img {
+      height: 40px;
+      margin-bottom: 1rem;
+    }
+    
+    .footer-logo p {
+      margin-top: 1rem;
+      opacity: 0.8;
+      max-width: 300px;
+    }
+    
+    .footer-links h4,
+    .footer-contact h4 {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+      color: var(--primary);
+    }
+    
+    .footer-links ul {
+      list-style: none;
+    }
+    
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+    
+    .footer-links a:hover {
+      color: var(--primary);
+    }
+    
+    .footer-contact p {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    
+    .footer-bottom {
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    
+    .legal-links {
+      display: flex;
+      gap: 1rem;
+    }
+    
+    .legal-links a:hover {
+      color: var(--primary);
+    }
+    
+    /* ===== PARTICLES ===== */
+    #particles-js {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+    }
+    
+    /* ===== RESPONSIVE DESIGN ===== */
+    @media (max-width: 992px) {
+      .nav-links {
+        display: none;
+      }
+      
+      .mobile-menu-btn {
+        display: block;
+      }
+      
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+      
+      .section-title {
+        font-size: 2rem;
+      }
+      
+      .about-content {
+        grid-template-columns: 1fr;
+      }
+      
+      .about-image {
+        max-width: 600px;
+        margin: 0 auto;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .glow-border {
+        border-radius: 0;
+      }
+      
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+      
+      .section-title {
+        font-size: 1.8rem;
+      }
+      
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .legal-links {
+        justify-content: center;
+        margin-top: 10px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .logo span {
+        font-size: 1.2rem;
+      }
+      
+      .hero h1 {
+        font-size: 1.6rem;
+      }
+      
+      .tagline {
+        font-size: 1rem;
+      }
+      
+      .section-title {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- RGB Glow Border -->
+  <div class="glow-border"></div>
+  <div id="particles-js"></div>
+
+  <!-- Floating WhatsApp Button -->
+  <div class="float-whatsapp">
+    <a href="https://wa.me/880171192420" target="_blank" rel="noopener noreferrer">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+  </div>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="container">
+      <div class="logo">
+        <img src="vixmo.png" alt="Vixmo Digital Logo" class="logo-img"> 
+        <span>Vixmo Digital</span>
+      </div>
+      
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li class="dropdown">
+          <a href="javascript:void(0)">Work <i class="fas fa-chevron-down"></i></a>
+          <div class="dropdown-content">
+            <a href="portfolio.html">Portfolio</a>
+            <a href="case-studies.html">Case Studies</a>
+          </div>
+        </li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="careers.html">Careers</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      
+      <div class="mobile-menu-btn">
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu">
+    <div class="close-menu">
+      <i class="fas fa-times"></i>
+    </div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li>
+        <a href="javascript:void(0)" class="mobile-dropdown-toggle">Work <i class="fas fa-chevron-down"></i></a>
+        <div class="mobile-dropdown-content">
+          <a href="portfolio.html">Portfolio</a>
+          <a href="case-studies.html">Case Studies</a>
+        </div>
+      </li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="careers.html">Careers</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <h1>About <span class="glow-text">Vixmo Digital</span></h1>
+      <p class="tagline">We're more than a digital agency - we're your strategic partners in innovation and growth</p>
+    </div>
+  </section>
+
+  <!-- About Content -->
+  <section class="about-section">
+    <div class="container">
+      <div class="about-content">
+        <div class="about-image">
+          <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Vixmo Digital Team">
+        </div>
+        <div class="about-text">
+          <h2>Our Journey</h2>
+          <p>Founded in 2025, Vixmo Digital began as a small team of passionate digital experts with a shared vision: to transform how businesses connect with their audiences in the digital age.</p>
+          <p>Today, we've grown into a full-service digital agency serving clients across multiple industries, helping them navigate the complex digital landscape and achieve measurable results.</p>
+          <p>Our journey has been defined by innovation, collaboration, and a relentless pursuit of excellence. We believe in pushing boundaries and challenging the status quo to deliver solutions that make a real impact.</p>
+          <a href="contact.html" class="cta-button">Work With Us</a>
+        </div>
+      </div>
+
+      <div class="milestones-grid">
+        <div class="milestone-card">
+          <div class="milestone-number">2025</div>
+          <div class="milestone-text">Founded with 3 team members in Dhaka</div>
+        </div>
+        <div class="milestone-card">
+          <div class="milestone-number">5+</div>
+          <div class="milestone-text">Projects successfully delivered</div>
+        </div>
+        <div class="milestone-card">
+          <div class="milestone-number">5+</div>
+          <div class="milestone-text">Dedicated team members</div>
+        </div>
+        <div class="milestone-card">
+          <div class="milestone-number">98%</div>
+          <div class="milestone-text">Client satisfaction rate</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Values Section -->
+  <section class="values-section">
+    <div class="container">
+      <h2 class="section-title">Our Core Values</h2>
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="value-icon"><i class="fas fa-lightbulb"></i></div>
+          <h3>Innovation</h3>
+          <p>We constantly explore new technologies and approaches to deliver cutting-edge solutions that give our clients a competitive edge.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon"><i class="fas fa-users"></i></div>
+          <h3>Collaboration</h3>
+          <p>We believe the best results come from true partnership with our clients, working together towards shared goals.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon"><i class="fas fa-chart-line"></i></div>
+          <h3>Excellence</h3>
+          <p>We never settle for good enough. Our team is committed to delivering exceptional quality in everything we do.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon"><i class="fas fa-handshake"></i></div>
+          <h3>Integrity</h3>
+          <p>We build relationships based on trust, transparency, and ethical business practices.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon"><i class="fas fa-heart"></i></div>
+          <h3>Passion</h3>
+          <p>Our team is driven by genuine enthusiasm for digital innovation and helping our clients succeed.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon"><i class="fas fa-trophy"></i></div>
+          <h3>Results-Driven</h3>
+          <p>We focus on delivering measurable outcomes that drive business growth and create real value.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section class="team-section">
+    <div class="container">
+      <h2 class="section-title">Meet Our Leadership</h2>
+      <div class="team-grid">
+        <div class="team-member">
+          <div class="member-image">
+            <img src="https://get.filesto.space/download/gAAAAABoT7MYa2TZ0UjZcawGKlxQvEh3Zn2HoLTz-mbnXz4tqtcqPqScPI-lfBGakDxIPX2LVHDjBxPh5EXVW9SfEbO5yfyPxYobOCZP3mPQrwfVpjmzY88n3H3gQoXqRSu5I3o1IOzvGeMH7ql0nuJkzTIIeytwPVwaFrYCAJrceXyDLJcLe1M=" alt="CEO">
+          </div>
+          <div class="member-info">
+            <h3>Masum Hasan</h3>
+            <span class="member-position">CEO & Founder</span>
+            <p>Visionary leader with 6+ years in digital transformation</p>
+            <div class="social-icons">
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fas fa-envelope"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="team-member">
+          <div class="member-image">
+            <img src="" alt="CTO">
+          </div>
+          <div class="member-info">
+            <h3>I will add later</h3>
+            <span class="member-position">CTO</span>
+            <p>Tech innovator specializing in scalable solutions</p>
+            <div class="social-icons">
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#"><i class="fab fa-github"></i></a>
+              <a href="#"><i class="fas fa-envelope"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="team-member">
+          <div class="member-image">
+            <img src="" alt="Creative Director">
+          </div>
+          <div class="member-info">
+            <h3>Maybe add later</h3>
+            <span class="member-position">Creative Director</span>
+            <p>Award-winning designer with a passion for UX</p>
+            <div class="social-icons">
+              <a href="#"><i class="fab fa-behance"></i></a>
+              <a href="#"><i class="fab fa-dribbble"></i></a>
+              <a href="#"><i class="fas fa-envelope"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="team-member">
+          <div class="member-image">
+            <img src="" alt="Marketing Director">
+          </div>
+          <div class="member-info">
+            <h3>Maybe Add later</h3>
+            <span class="member-position">Marketing Director</span>
+            <p>Data-driven strategist with ROI-focused approach</p>
+            <div class="social-icons">
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fas fa-envelope"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>Ready to transform your digital presence?</h2>
+      <a href="contact.html" class="cta-button secondary">GET IN TOUCH</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <img src="vixmo.png" alt="Vixmo Digital Logo">
+          <p>Innovative digital solutions for the modern business landscape.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h4>Contact Us</h4>
+          <p><i class="fas fa-map-marker-alt"></i> 51/C North Mugda, Dhaka-1214, Bangladesh</p>
+          <p><i class="fas fa-phone"></i> +880 171192420</p>
+          <p><i class="fas fa-envelope"></i> vixmodigital@protonmail.com</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Vixmo Digital. All rights reserved.</p>
+        <div class="legal-links">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile Menu Toggle
+    document.addEventListener('DOMContentLoaded', function() {
+      const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+      const mobileMenu = document.querySelector('.mobile-menu');
+      const closeMenu = document.querySelector('.close-menu');
+      const mobileDropdownToggles = document.querySelectorAll('.mobile-dropdown-toggle');
+      
+      mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+      
+      closeMenu.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+      
+      // Mobile Dropdown Toggles
+      mobileDropdownToggles.forEach(toggle => {
+        toggle.addEventListener('click', () => {
+          const content = toggle.nextElementSibling;
+          content.classList.toggle('active');
+          
+          const icon = toggle.querySelector('i');
+          if (icon.classList.contains('fa-chevron-down')) {
+            icon.classList.replace('fa-chevron-down', 'fa-chevron-up');
+          } else {
+            icon.classList.replace('fa-chevron-up', 'fa-chevron-down');
+          }
+        });
+      });
+      
+      // Close mobile menu when clicking links
+      document.querySelectorAll('.mobile-menu a').forEach(link => {
+        if (!link.classList.contains('mobile-dropdown-toggle')) {
+          link.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = '';
+          });
+        }
+      });
+      
+      // Particles.js Configuration
+      if (typeof particlesJS !== 'undefined') {
+        particlesJS('particles-js', {
+          particles: {
+            number: { value: 80, density: { enable: true, value_area: 800 } },
+            color: { value: '#00F5FF' },
+            shape: { type: 'circle' },
+            opacity: { random: true, value: 0.5 },
+            size: { random: true, value: 3 },
+            line_linked: { 
+              enable: true, 
+              distance: 150, 
+              color: '#9400D3', 
+              opacity: 0.4, 
+              width: 1 
+            },
+            move: { enable: true, speed: 2 }
+          },
+          interactivity: {
+            detect_on: 'canvas',
+            events: {
+              onhover: { enable: true, mode: 'repulse' },
+              onclick: { enable: true, mode: 'push' }
+            }
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>
